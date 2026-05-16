@@ -1,0 +1,217 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CMPS 260: Module 1 Programming Assignment</title>
+<style>* { font-family: monospace; }</style>
+<script>
+
+console.log("Setting up the environment");
+
+
+
+console.log("JavaScript basics");
+
+var greeting = "Hello World!";
+console.log(greeting);
+
+var myVariable = "global";
+var myOtherVariable = "global";
+
+function myFunction() {
+  var myVariable = "local";
+  return myVariable;
+}
+
+function myOtherFunction() {
+  myOtherVariable = "local";
+  return myOtherVariable;
+}
+
+console.log(myVariable);
+console.log(myFunction());
+console.log(myOtherVariable);
+console.log(myOtherFunction());
+console.log(myOtherVariable);
+
+console.log(5 == "5");
+console.log(5 === "5");
+
+
+
+console.log("Control structures");
+
+var year = 2016;
+if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) {
+  console.log(year + " is a leap year.");
+} else {
+  console.log(year + " is not a leap year.");
+}
+
+var n = 10;
+var factorial = 1;
+for (var i = 1; i <= n; i++) {
+  factorial *= i;
+}
+console.log(n + "! = " + factorial);
+
+
+
+console.log("Functions");
+
+function checkForNumber(arr, num) {
+  return arr[0] === num || arr[arr.length - 1] === num;
+}
+
+console.log(checkForNumber([4, 2, 5, 3], 4) === true);
+console.log(checkForNumber([4, 2, 5, 3], 3) === true);
+console.log(checkForNumber([4, 2, 5, 3], 2) === false);
+console.log(checkForNumber([4, 2, 5, 3], 13) === false);
+
+
+
+console.log("Object-oriented programming in JavaScript");
+
+function Triangle(side) {
+  this.side = side;
+}
+
+Triangle.prototype.getCircumference = function() {
+  return 3 * this.side;
+};
+
+Triangle.prototype.getArea = function() {
+  return (Math.sqrt(3) / 4) * this.side * this.side;
+};
+
+var triangle = new Triangle(5);
+console.log("The circumference for the triangle is " + triangle.getCircumference());
+console.log("The area for the triangle is " + triangle.getArea());
+
+
+
+console.log("Debugging and tools");
+
+
+
+console.log("Why should we use arrays?");
+
+var day1Temp = 68;
+var day2Temp = 72;
+var day3Temp = 65;
+var day4Temp = 70;
+var day5Temp = 74;
+var avgTempVars = (day1Temp + day2Temp + day3Temp + day4Temp + day5Temp) / 5;
+console.log("Average temperature (variables): " + avgTempVars);
+
+var forecast = [68, 72, 65, 70, 74];
+var sum = 0;
+for (var i = 0; i < forecast.length; i++) {
+  sum += forecast[i];
+}
+console.log("Average temperature (array): " + (sum / forecast.length));
+
+
+
+console.log("Creating and initializing arrays");
+
+var daysOfWeek1 = new Array();
+var daysOfWeek2 = new Array(7);
+var daysOfWeek3 = new Array("Sunday", "Monday", "Tuesday", "Wednesday",
+                            "Thursday", "Friday", "Saturday");
+var daysOfWeek4 = [];
+var daysOfWeek5 = ["Sunday", "Monday", "Tuesday", "Wednesday",
+                   "Thursday", "Friday", "Saturday"];
+
+console.log(daysOfWeek1.length);
+console.log(daysOfWeek2.length);
+console.log(daysOfWeek3.length);
+console.log(daysOfWeek4.length);
+console.log(daysOfWeek5.length);
+
+var justSeven = [7];
+var sevenAndEight = [7, 8];
+console.log(justSeven);
+console.log(sevenAndEight);
+
+var fibonacci = [0, 1];
+for (var i = 2; i < 25; i++) {
+  fibonacci.push(fibonacci[i - 1] + fibonacci[i - 2]);
+}
+console.log(fibonacci);
+
+
+
+console.log("Adding elements");
+
+var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+arr.push(10);
+console.log(arr);
+
+arr.unshift(0);
+console.log(arr);
+
+console.log(arr.length);
+
+
+
+console.log("Removing elements");
+
+arr.pop();
+console.log(arr);
+
+arr.shift();
+console.log(arr);
+
+
+
+console.log("Adding and removing elements from a specific position");
+
+var removed = arr.splice(1, arr.length - 2);
+console.log(arr);
+
+arr.splice.apply(arr, [1, 0].concat(removed));
+console.log(arr);
+
+
+
+console.log("Two-dimensional and multidimensional arrays");
+
+var arr = [[1, 2, 3],
+           [4, 5, 6],
+           [7, 8, 9]];
+
+var total = 0;
+for (var i = 0; i < arr.length; i++) {
+  for (var j = 0; j < arr[i].length; j++) {
+    total += arr[i][j];
+  }
+}
+console.log(total);
+
+
+
+console.log("References for JavaScript array methods");
+
+var zero = 0;
+var positiveNumbers = [1, 2, 3];
+var negativeNumbers = [-3, -2, -1];
+
+var numbers = [].concat(negativeNumbers, [zero], positiveNumbers);
+console.log(numbers);
+
+console.log(numbers.every(function(num) { return num < 10; }));
+
+console.log(numbers.filter(function(num) { return num >= 0; }));
+
+console.log(numbers.map(function(num) { return num * num; }));
+
+
+
+</script>
+</head>
+<body>
+  See Console!
+</body>
+</html>
